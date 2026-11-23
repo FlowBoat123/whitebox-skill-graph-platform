@@ -1,0 +1,28 @@
+{
+  "name": "@defect-intelligence/mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Zero-dependency local MCP (JSON-RPC 2.0 stdio) server exposing the unified Defect Knowledge Graph and White-Box Composable Skill Graph.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "start": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@defect-intelligence/knowledge-validator": "0.1.0",
+    "@defect-intelligence/skill-graph": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
