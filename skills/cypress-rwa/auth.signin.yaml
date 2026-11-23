@@ -1,0 +1,58 @@
+schemaVersion: 1
+id: auth.signin
+app: cypress-rwa
+description: Sign in to Cypress Real World App as a specific user.
+preconditions: []
+produces:
+  - name: auth.logged_in
+    singleton: true
+    params:
+      user: "{{username}}"
+inputs:
+  username:
+    type: string
+    required: true
+  password:
+    type: string
+    required: true
+    sensitive: true
+codeRefs:
+  routes:
+    - /signin
+    - /
+  endpoints:
+    - POST /login
+  sourceFiles:
+    - src/components/SignInForm.tsx
+    - backend/auth.ts
+steps:
+  - op: NAVIGATE
+    url: /signin
+    note: Open sign-in screen
+  - op: FILL
+    target:
+      strategy: label
+      value: Username
+    value: "{{username}}"
+  - op: FILL
+    target:
+      strategy: label
+      value: Password
+    value: "{{password}}"
+  - op: CLICK
+    target:
+      strategy: role
+      role: button
+      value: Sign In
+    expectUrl: "^http://localhost:\\d+/$"
+postconditions:
+  - kind: HTTP_STATUS
+    method: POST
+    path: /login
+    expectStatus: 200
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0
+  - kind: DOM_CONTAINS
+    text: "@{{username}}"

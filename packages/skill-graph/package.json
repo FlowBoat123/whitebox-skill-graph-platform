@@ -1,0 +1,30 @@
+{
+  "name": "@defect-intelligence/skill-graph",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "White-Box Code-Aware Skill Graph planner, Playwright semantic executor, telemetry verifier, and git-diff impact selector.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run --no-file-parallelism",
+    "cli": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "@defect-intelligence/knowledge-validator": "0.1.0",
+    "ajv": "^8.17.1",
+    "playwright-core": "^1.52.0",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

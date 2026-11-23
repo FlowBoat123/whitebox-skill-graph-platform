@@ -1,0 +1,58 @@
+schemaVersion: 1
+id: bank.delete
+app: cypress-rwa
+description: Soft-delete an existing bank account belonging to the signed-in user.
+preconditions:
+  - name: auth.logged_in
+    singleton: true
+    params:
+      user: "{{user}}"
+  - name: bank.exists
+    params:
+      user: "{{user}}"
+      bankName: "{{bankName}}"
+produces:
+  - name: bank.deleted
+    params:
+      user: "{{user}}"
+      bankName: "{{bankName}}"
+inputs:
+  user:
+    type: string
+    required: true
+  bankName:
+    type: string
+    required: true
+codeRefs:
+  routes:
+    - /bankaccounts
+  endpoints:
+    - POST /graphql
+  sourceFiles:
+    - src/components/BankAccountItem.tsx
+    - src/components/BankAccountList.tsx
+    - backend/graphql/resolvers/Mutation.ts
+steps:
+  - op: CLICK
+    target:
+      strategy: role
+      role: link
+      value: Bank Accounts
+    expectUrl: /bankaccounts
+  - op: CLICK
+    target:
+      strategy: role
+      role: button
+      value: Delete
+      containerText: "{{bankName}}"
+postconditions:
+  - kind: HTTP_STATUS
+    method: POST
+    path: /graphql
+    expectStatus: 200
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0
+  - kind: DOM_CONTAINS
+    text: "{{bankName}} (Deleted)"

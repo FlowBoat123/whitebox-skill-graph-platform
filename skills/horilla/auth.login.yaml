@@ -1,0 +1,61 @@
+schemaVersion: 1
+id: auth.login
+app: horilla
+description: Sign in to Horilla HRMS with username and password and land on the dashboard.
+preconditions: []
+produces:
+  - name: auth.logged_in
+    singleton: true
+    params:
+      user: "{{username}}"
+inputs:
+  username:
+    type: string
+    required: true
+  password:
+    type: string
+    required: true
+    sensitive: true
+codeRefs:
+  routes:
+    - /login/
+    - /dashboard/
+  endpoints:
+    - POST /login/
+  sourceFiles:
+    - horilla_theme/templates/login.html
+    - templates/login.html
+    - base/views.py
+steps:
+  - op: NAVIGATE
+    url: /login/
+    note: Open Horilla login page
+  - op: FILL
+    target:
+      strategy: label
+      value: Username
+      exact: true
+    value: "{{username}}"
+  - op: FILL
+    target:
+      strategy: label
+      value: Password
+      exact: true
+    value: "{{password}}"
+  - op: CLICK
+    target:
+      strategy: role
+      role: button
+      value: Sign In
+    expectUrl: "/dashboard/"
+postconditions:
+  - kind: HTTP_STATUS
+    method: POST
+    path: /login/
+    expectStatus: 302
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0
+  - kind: DOM_CONTAINS
+    text: "Dashboard"

@@ -1,0 +1,68 @@
+schemaVersion: 1
+id: department.create
+app: horilla
+description: Create a new department in Horilla HRMS settings via the HTMX creation modal.
+preconditions:
+  - name: auth.logged_in
+    singleton: true
+    params:
+      user: "{{user}}"
+produces:
+  - name: department.exists
+    params:
+      department: "{{department}}"
+inputs:
+  user:
+    type: string
+    required: true
+  department:
+    type: string
+    required: true
+codeRefs:
+  routes:
+    - /settings/department-view/
+  endpoints:
+    - POST /settings-department-creation/
+  sourceFiles:
+    - base/cbv/department.py
+    - base/forms.py
+    - horilla_theme/templates/generic/form.html
+    - horilla_theme/templates/generic/horilla_nav.html
+steps:
+  - op: NAVIGATE
+    url: /settings/department-view/
+    note: Open Horilla settings department management view
+  - op: CLICK
+    target:
+      strategy: text
+      value: Create
+      exact: true
+    note: Open HTMX department creation modal
+  - op: FILL
+    target:
+      strategy: placeholder
+      value: Department
+      exact: true
+    value: "{{department}}"
+  - op: CLICK
+    target:
+      strategy: text
+      value: Save
+      exact: true
+    note: Submit department creation modal
+  - op: ASSERT_TEXT
+    target:
+      strategy: text
+      value: "{{department}}"
+    value: "{{department}}"
+postconditions:
+  - kind: HTTP_STATUS
+    method: POST
+    path: /settings-department-creation/
+    expectStatus: 200
+  - kind: DOM_CONTAINS
+    text: "{{department}}"
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0

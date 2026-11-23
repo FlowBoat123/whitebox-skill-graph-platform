@@ -1,0 +1,82 @@
+schemaVersion: 1
+id: bank.create
+app: cypress-rwa
+description: Create a new bank account for the currently signed-in user.
+preconditions:
+  - name: auth.logged_in
+    singleton: true
+    params:
+      user: "{{user}}"
+produces:
+  - name: bank.exists
+    params:
+      user: "{{user}}"
+      bankName: "{{bankName}}"
+inputs:
+  user:
+    type: string
+    required: true
+  bankName:
+    type: string
+    required: true
+  routingNumber:
+    type: string
+    required: true
+  accountNumber:
+    type: string
+    required: true
+codeRefs:
+  routes:
+    - /bankaccounts
+    - /bankaccounts/new
+  endpoints:
+    - POST /graphql
+  sourceFiles:
+    - src/components/BankAccountForm.tsx
+    - src/containers/BankAccountsContainer.tsx
+    - backend/graphql/resolvers/Mutation.ts
+steps:
+  - op: CLICK
+    target:
+      strategy: role
+      role: link
+      value: Bank Accounts
+    expectUrl: /bankaccounts
+  - op: CLICK
+    target:
+      strategy: role
+      role: link
+      value: Create
+    expectUrl: /bankaccounts/new
+  - op: FILL
+    target:
+      strategy: placeholder
+      value: Bank Name
+    value: "{{bankName}}"
+  - op: FILL
+    target:
+      strategy: placeholder
+      value: Routing Number
+    value: "{{routingNumber}}"
+  - op: FILL
+    target:
+      strategy: placeholder
+      value: Account Number
+    value: "{{accountNumber}}"
+  - op: CLICK
+    target:
+      strategy: role
+      role: button
+      value: Save
+    expectUrl: /bankaccounts$
+postconditions:
+  - kind: HTTP_STATUS
+    method: POST
+    path: /graphql
+    expectStatus: 200
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0
+  - kind: DOM_CONTAINS
+    text: "{{bankName}}"

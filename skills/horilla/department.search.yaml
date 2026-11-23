@@ -1,0 +1,60 @@
+schemaVersion: 1
+id: department.search
+app: horilla
+description: Filter the Horilla departments list using the HTMX search bar and verify the target department appears.
+preconditions:
+  - name: auth.logged_in
+    singleton: true
+    params:
+      user: "{{user}}"
+  - name: department.exists
+    params:
+      department: "{{department}}"
+produces:
+  - name: department.filtered
+    params:
+      department: "{{department}}"
+inputs:
+  user:
+    type: string
+    required: true
+  department:
+    type: string
+    required: true
+codeRefs:
+  routes:
+    - /settings/department-view/
+  endpoints:
+    - GET /department-list/
+  sourceFiles:
+    - base/cbv/department.py
+    - horilla_theme/templates/generic/horilla_nav.html
+steps:
+  - op: NAVIGATE
+    url: /settings/department-view/
+    note: Open Horilla settings department list
+  - op: FILL
+    target:
+      strategy: placeholder
+      value: Search
+      exact: true
+    value: "{{department}}"
+    pressEnter: true
+    note: Filter department rows via HTMX search
+  - op: ASSERT_TEXT
+    target:
+      strategy: text
+      value: "{{department}}"
+      exact: true
+    value: "{{department}}"
+postconditions:
+  - kind: HTTP_STATUS
+    method: GET
+    path: /department-list/
+    expectStatus: 200
+  - kind: DOM_CONTAINS
+    text: "{{department}}"
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0

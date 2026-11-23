@@ -1,0 +1,73 @@
+schemaVersion: 1
+id: tx.respond_request
+app: cypress-rwa
+description: Open a pending payment request as the receiver and accept or reject it.
+preconditions:
+  - name: tx.pending_request
+    params:
+      sender: "{{sender}}"
+      receiver: "{{receiver}}"
+      note: "{{note}}"
+  - name: auth.logged_in
+    singleton: true
+    params:
+      user: "{{receiver}}"
+produces:
+  - name: tx.resolved
+    params:
+      sender: "{{sender}}"
+      receiver: "{{receiver}}"
+      note: "{{note}}"
+      decisionLabel: "{{decisionLabel}}"
+inputs:
+  sender:
+    type: string
+    required: true
+  receiver:
+    type: string
+    required: true
+  note:
+    type: string
+    required: true
+  decisionLabel:
+    type: string
+    required: true
+    default: Accept Request
+codeRefs:
+  routes:
+    - /personal
+    - /transaction
+  endpoints:
+    - PATCH /transactions
+  sourceFiles:
+    - src/components/TransactionNavTabs.tsx
+    - src/components/TransactionDetail.tsx
+    - backend/transaction-routes.ts
+steps:
+  - op: CLICK
+    target:
+      strategy: role
+      role: tab
+      value: Mine
+    expectUrl: /personal
+  - op: CLICK
+    target:
+      strategy: text
+      value: "{{note}}"
+    expectUrl: /transaction/
+  - op: CLICK
+    target:
+      strategy: role
+      role: button
+      value: "{{decisionLabel}}"
+postconditions:
+  - kind: HTTP_STATUS
+    method: PATCH
+    path: /transactions
+    expectStatus: 204
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0
+  - kind: DOM_NOT_CONTAINS
+    text: "{{decisionLabel}}"

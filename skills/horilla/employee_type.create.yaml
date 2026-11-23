@@ -1,0 +1,68 @@
+schemaVersion: 1
+id: employee_type.create
+app: horilla
+description: Create a new employee type in Horilla HRMS settings via the HTMX creation modal.
+preconditions:
+  - name: auth.logged_in
+    singleton: true
+    params:
+      user: "{{user}}"
+produces:
+  - name: employee_type.exists
+    params:
+      employeeType: "{{employeeType}}"
+inputs:
+  user:
+    type: string
+    required: true
+  employeeType:
+    type: string
+    required: true
+codeRefs:
+  routes:
+    - /settings/employee-type-view/
+  endpoints:
+    - POST /settings/employee-type-create-view/
+  sourceFiles:
+    - base/cbv/employee_type.py
+    - base/forms.py
+    - horilla_theme/templates/generic/form.html
+    - horilla_theme/templates/generic/inline_nav.html
+steps:
+  - op: NAVIGATE
+    url: /settings/employee-type-view/
+    note: Open Horilla settings employee type management view
+  - op: CLICK
+    target:
+      strategy: text
+      value: Create
+      exact: true
+    note: Open HTMX employee type creation modal
+  - op: FILL
+    target:
+      strategy: placeholder
+      value: Employee Type
+      exact: true
+    value: "{{employeeType}}"
+  - op: CLICK
+    target:
+      strategy: text
+      value: Save
+      exact: true
+    note: Submit employee type creation modal
+  - op: ASSERT_TEXT
+    target:
+      strategy: text
+      value: "{{employeeType}}"
+    value: "{{employeeType}}"
+postconditions:
+  - kind: HTTP_STATUS
+    method: POST
+    path: /settings/employee-type-create-view/
+    expectStatus: 200
+  - kind: DOM_CONTAINS
+    text: "{{employeeType}}"
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0

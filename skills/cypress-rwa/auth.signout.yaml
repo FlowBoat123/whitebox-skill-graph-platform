@@ -1,0 +1,35 @@
+schemaVersion: 1
+id: auth.signout
+app: cypress-rwa
+description: Sign out the currently authenticated user via the navigation drawer.
+preconditions: []
+produces: []
+clears:
+  - auth.logged_in
+inputs: {}
+codeRefs:
+  routes:
+    - /signin
+  endpoints:
+    - POST /logout
+  sourceFiles:
+    - src/components/NavDrawer.tsx
+    - backend/auth.ts
+steps:
+  - op: CLICK
+    target:
+      strategy: role
+      role: button
+      value: Logout
+    expectUrl: /signin
+postconditions:
+  - kind: HTTP_STATUS
+    method: POST
+    path: /logout
+    expectStatus: 302
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0
+  - kind: URL_MATCH
+    pattern: /signin

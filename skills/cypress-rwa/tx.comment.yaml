@@ -1,0 +1,76 @@
+schemaVersion: 1
+id: tx.comment
+app: cypress-rwa
+description: Open a newly created payment on the Mine tab and post a comment.
+preconditions:
+  - name: tx.paid
+    params:
+      sender: "{{sender}}"
+      receiver: "{{receiver}}"
+      note: "{{note}}"
+  - name: auth.logged_in
+    singleton: true
+    params:
+      user: "{{sender}}"
+produces:
+  - name: tx.commented
+    params:
+      sender: "{{sender}}"
+      note: "{{note}}"
+      commentText: "{{commentText}}"
+inputs:
+  sender:
+    type: string
+    required: true
+  receiver:
+    type: string
+    required: true
+  note:
+    type: string
+    required: true
+  commentText:
+    type: string
+    required: true
+codeRefs:
+  routes:
+    - /
+    - /transaction
+    - /transaction/new
+  endpoints:
+    - POST /comments
+    - POST /graphql
+  sourceFiles:
+    - src/components/CommentForm.tsx
+    - src/components/TransactionNavTabs.tsx
+    - backend/comment-routes.ts
+    - backend/graphql/resolvers/index.ts
+    - backend/graphql/resolvers/Mutation.ts
+    - backend/graphql/resolvers/Query.ts
+steps:
+  - op: NAVIGATE
+    url: /personal
+  - op: CLICK
+    target:
+      strategy: text
+      value: Mine
+  - op: CLICK
+    target:
+      strategy: text
+      value: "{{note}}"
+  - op: FILL
+    target:
+      strategy: placeholder
+      value: Write a comment...
+    value: "{{commentText}}"
+    pressEnter: true
+postconditions:
+  - kind: HTTP_STATUS
+    method: POST
+    path: /comments
+    expectStatus: 200
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0
+  - kind: DOM_CONTAINS
+    text: "{{commentText}}"

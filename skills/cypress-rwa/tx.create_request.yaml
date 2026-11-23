@@ -1,0 +1,84 @@
+schemaVersion: 1
+id: tx.create_request
+app: cypress-rwa
+description: Submit a payment request to another user, producing a pending request state.
+preconditions:
+  - name: auth.logged_in
+    singleton: true
+    params:
+      user: "{{sender}}"
+produces:
+  - name: tx.pending_request
+    params:
+      sender: "{{sender}}"
+      receiver: "{{receiver}}"
+      note: "{{note}}"
+inputs:
+  sender:
+    type: string
+    required: true
+  receiver:
+    type: string
+    required: true
+  receiverName:
+    type: string
+    required: true
+  amount:
+    type: number
+    required: true
+  note:
+    type: string
+    required: true
+codeRefs:
+  routes:
+    - /transaction/new
+  endpoints:
+    - POST /transactions
+  sourceFiles:
+    - src/components/NavBar.tsx
+    - src/components/TransactionCreateStepOne.tsx
+    - src/components/TransactionCreateStepTwo.tsx
+    - src/components/UserListSearchForm.tsx
+    - backend/transaction-routes.ts
+steps:
+  - op: CLICK
+    target:
+      strategy: role
+      role: link
+      value: New
+    expectUrl: /transaction/new
+  - op: FILL
+    target:
+      strategy: placeholder
+      value: Search...
+    value: "{{receiverName}}"
+  - op: CLICK
+    target:
+      strategy: text
+      value: "{{receiverName}}"
+  - op: FILL
+    target:
+      strategy: placeholder
+      value: Amount
+    value: "{{amount}}"
+  - op: FILL
+    target:
+      strategy: placeholder
+      value: Add a note
+    value: "{{note}}"
+  - op: CLICK
+    target:
+      strategy: role
+      role: button
+      value: Request
+postconditions:
+  - kind: HTTP_STATUS
+    method: POST
+    path: /transactions
+    expectStatus: 200
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0
+  - kind: DOM_CONTAINS
+    text: Transaction Submitted!
