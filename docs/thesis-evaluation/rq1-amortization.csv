@@ -1,0 +1,7 @@
+runs_n,is_projected,pure_llm_calls,pure_llm_usd,pure_llm_total_sec,skill_graph_calls,skill_graph_usd,skill_graph_total_sec,cost_savings_pct
+1,false,14.4,0.00544,102.3,7,0.00322,5.1,40.81
+5,false,72,0.02722,511.7,7,0.00322,25.4,88.17
+10,true,144,0.05443,1023.4,7,0.00322,50.7,94.08
+25,true,360,0.13608,2558.6,8,0.00443,126.9,96.74
+50,true,720,0.27215,5117.2,9,0.00564,253.7,97.93
+100,true,1440,0.5443,10234.3,11,0.00807,507.4,98.52

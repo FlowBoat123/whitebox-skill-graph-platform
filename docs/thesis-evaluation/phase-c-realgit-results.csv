@@ -1,0 +1,100 @@
+app,sha,date,commit_kind,changed_files_count,total_app_skills,impacted_skills_count,skipped_all,selection_latency_ms,subject
+cypress-rwa,0729f68,2026-10-07,DOCS_CI_DEPS_ONLY,2,8,0,true,2.276,chore: wait for the frontend and API before running Cypress (#1739)
+cypress-rwa,9dfcb98,2026-09-29,DOCS_CI_DEPS_ONLY,2,8,0,true,0.39,chore: update Cypress to 16.1.1 (#1738)
+cypress-rwa,79aa5b1,2026-09-01,DOCS_CI_DEPS_ONLY,2,8,0,true,0.234,chore: update RWA to Cypress 16 and Vite 8 (#1729)
+cypress-rwa,28ca4d0,2026-08-12,TESTS_ONLY,1,8,0,true,0.224,fix: assert one CSS property at a time in have.css (#1726)
+cypress-rwa,401dadd,2026-07-31,UNRELATED_APP_CODE,2,8,0,true,0.27,docs: fix stale Cypress config keys in custom-port instructions (#1725)
+cypress-rwa,8c6c390,2026-07-27,DOCS_CI_DEPS_ONLY,1,8,0,true,0.249,docs: specify yarn@1 for installation (#1724)
+cypress-rwa,bdf6169,2026-07-06,DOCS_CI_DEPS_ONLY,2,8,0,true,0.224,chore: upgrade @percy/cypress to 3.1.8 for allowCypressEnv support (#1720)
+cypress-rwa,6486a7e,2026-06-21,DOCS_CI_DEPS_ONLY,4,8,0,true,0.267,chore: standardize on Node.js 22 (#1718)
+cypress-rwa,9a4d692,2026-06-11,UNRELATED_APP_CODE,25,8,0,true,0.315,chore: migrate Cypress.env() to Cypress.expose() for Cypress 16 (#1715)
+cypress-rwa,7c5714a,2026-06-02,DOCS_CI_DEPS_ONLY,1,8,0,true,0.217,fix(ci): merge-develop-into-flake-demo workflow github-script failure (#1712)
+cypress-rwa,6866bf3,2026-06-02,DOCS_CI_DEPS_ONLY,1,8,0,true,0.279,fix merge-develop-into-flake-demo workflow (#1711)
+cypress-rwa,2ce8050,2026-05-19,TESTS_ONLY,1,8,0,true,0.217,test: update Cypress 16 visibility — use not.exist for closed MUI Popover (#1709)
+cypress-rwa,8400879,2026-05-01,UNRELATED_APP_CODE,3,8,0,true,0.296,fix: updates endpoint for DiceBear avatar API (#1707)
+cypress-rwa,dc961f9,2026-04-10,DOCS_CI_DEPS_ONLY,1,8,0,true,0.277,chore: update node engines to accept 24 (#1705)
+cypress-rwa,fa3dc79,2026-03-23,DOCS_CI_DEPS_ONLY,1,8,0,true,0.286,chore(deps): update vite to 7.1.11 🌟 (#1661)
+cypress-rwa,bb7db6c,2026-03-09,DOCS_CI_DEPS_ONLY,1,8,0,true,0.208,chore(deps): update webpack to 5.104.1 🌟 (#1689)
+cypress-rwa,73b9a23,2026-03-05,UNRELATED_APP_CODE,5,8,0,true,0.22,chore: migrate from dinero.js v1 to v2 (#1697)
+cypress-rwa,3aab985,2026-02-24,SKILL_GROUNDED_APP_CODE,3,8,1,false,0.74,chore(deps): update eslint to v10 (#1693)
+cypress-rwa,39fc97d,2025-12-05,UNRELATED_APP_CODE,5,8,0,true,0.252,chore: update auth examples to use cy.task instead of Cypress.env() (#1673)
+cypress-rwa,3c1f822,2025-11-05,DOCS_CI_DEPS_ONLY,1,8,0,true,0.189,chore(deps): update browserslist (caniuse-lite) (#1665)
+cypress-rwa,ef8a933,2025-10-31,UNRELATED_APP_CODE,4,8,0,true,0.199,chore(deps): migrate to ESLint extends config structure (#1663)
+cypress-rwa,f3503ce,2025-10-23,DOCS_CI_DEPS_ONLY,1,8,0,true,0.238,fix(test): explicitly added `fileParallelism: false` to prevent flakiness in ci test pipeline (#1668)
+cypress-rwa,51b476a,2025-10-23,DOCS_CI_DEPS_ONLY,2,8,0,true,0.188,ci(deps): update to cypress/browsers:22.20.0 (#1664)
+cypress-rwa,90c5f1a,2025-08-22,UNRELATED_APP_CODE,7,8,0,true,0.205,fix: migrate from react-infinite-calendar to react-calendar (#1650)
+cypress-rwa,bf68e7e,2025-08-21,UNRELATED_APP_CODE,6,8,0,true,0.2,chore(deps): update dependency vite to version 7.x 🌟 (#1657)
+cypress-rwa,ed37e80,2025-08-20,DOCS_CI_DEPS_ONLY,2,8,0,true,0.189,chore: update RWA to Cypress 15 (#1654)
+cypress-rwa,67da21b,2025-08-19,DOCS_CI_DEPS_ONLY,1,8,0,true,0.196,chore(deps): update wait-on to 8.0.4 🌟 (#1652)
+cypress-rwa,a7b77dc,2025-08-11,DOCS_CI_DEPS_ONLY,2,8,0,true,0.187,fix(deps): update @cypress/code-coverage to 3.14.5 (#1649)
+cypress-rwa,f338735,2025-08-11,DOCS_CI_DEPS_ONLY,2,8,0,true,0.207,chore(deps): update vitest to 3.2.4 (#1648)
+cypress-rwa,d23eba8,2025-07-17,UNRELATED_APP_CODE,8,8,0,true,0.207,test(deps): reconfigure for ESLint v9 (#1643)
+cypress-rwa,484fbe5,2025-06-24,DOCS_CI_DEPS_ONLY,4,8,0,true,0.193,chore(deps): update @percy/cypress to 3.1.6 🌟 (#1640)
+cypress-rwa,d081b17,2025-06-23,TESTS_ONLY,1,8,0,true,0.187,fix(tests): remove cypress/tests/ui/transaction-feeds.spec.ts wait workaround (#1642)
+cypress-rwa,02687d3,2025-06-23,TESTS_ONLY,5,8,0,true,0.215,fix(tests): resolve unsafe-to-chain linting violations (#1641)
+cypress-rwa,a7de449,2025-05-12,DOCS_CI_DEPS_ONLY,1,8,0,true,0.185,fix(deps): drop node.js 18 support (#1636)
+cypress-rwa,fe6949e,2025-05-12,DOCS_CI_DEPS_ONLY,2,8,0,true,0.191,chore(deps): update to cypress/browsers:22.15.0 Docker (#1637)
+cypress-rwa,93c6b4b,2025-05-12,UNRELATED_APP_CODE,4,8,0,true,0.195,ci: use wait-on in CircleCI pipeline (#1638)
+cypress-rwa,9aa2f45,2025-05-07,DOCS_CI_DEPS_ONLY,1,8,0,true,0.193,chore(deps): update vite to 4.5.14 🌟 (#1631)
+cypress-rwa,ab595df,2025-05-06,DOCS_CI_DEPS_ONLY,1,8,0,true,0.189,chore(deps): update cypress to 14.3.3 🌟 (#1635)
+cypress-rwa,c2d37e6,2025-05-02,TESTS_ONLY,5,8,0,true,0.243,chore: update dependencies in RWA to help ease Cypress 15 transition (#1634)
+cypress-rwa,0f79c74,2025-04-29,UNRELATED_APP_CODE,3,8,0,true,0.187,bump cypress + turn on experimentalStudio by default (#1630)
+cypress-rwa,d72e0a4,2025-03-04,DOCS_CI_DEPS_ONLY,1,8,0,true,0.189,chore(deps): update @cypress/code-coverage to 3.13.12 🌟 (#1624)
+cypress-rwa,a2ffa13,2025-02-12,DOCS_CI_DEPS_ONLY,1,8,0,true,0.184,chore(deps): update cypress to 14.0.3 🌟 (#1620)
+cypress-rwa,6af69c0,2025-02-05,DOCS_CI_DEPS_ONLY,1,8,0,true,0.186,chore(deps): update cypress to 14.0.2 🌟 (#1617)
+cypress-rwa,737972f,2025-01-28,DOCS_CI_DEPS_ONLY,1,8,0,true,0.266,chore(deps): update cypress to 14.0.1 🌟 (#1615)
+cypress-rwa,261050b,2025-01-22,DOCS_CI_DEPS_ONLY,1,8,0,true,0.181,chore(deps): update vite to 4.5.6 🌟 (#1613)
+cypress-rwa,9d6bbc4,2025-01-16,TESTS_ONLY,6,8,0,true,0.242,update to cypress 14 and node 22 (#1612)
+cypress-rwa,3573e78,2025-01-15,UNRELATED_APP_CODE,4,8,0,true,0.236,chore: remove committed Yarn 1.22.22 cjs (#1610)
+cypress-rwa,cc5fc7d,2025-01-10,UNRELATED_APP_CODE,3,8,0,true,0.187,chore: use shipped @cypress/vite-dev-server with the cypress binary (#1608)
+cypress-rwa,6f96b25,2024-12-23,TESTS_ONLY,2,8,0,true,0.187,cy: improve api comments & contacts assertions and readability (#1604)
+horilla,6c15617,2026-11-10,UNRELATED_APP_CODE,3,4,0,true,0.335,[REL] Prepare 2.4.0
+horilla,f2efb1c,2026-11-10,DOCS_CI_DEPS_ONLY,1,4,0,true,0.157,[FIX] DEPS: Pin tblib to an exact version
+horilla,ef35b57,2026-11-10,UNRELATED_APP_CODE,4,4,0,true,0.165,"[FIX] DYNAMIC_FIELDS: Let the full test suite run, also in parallel"
+horilla,0c01cdb,2026-11-10,TESTS_ONLY,3,4,0,true,0.16,[FIX] DOCKER: Publish the web port on localhost only in production
+horilla,5c8b953,2026-11-10,UNRELATED_APP_CODE,3,4,0,true,0.158,[FIX] ATTENDANCE: Check the reporting manager on bulk validate and overtime approval
+horilla,3883d95,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.178,[FIX] MASTER_IMPORT: Escape the replace-file hint inside the upload script
+horilla,37ed968,2026-11-10,UNRELATED_APP_CODE,3,4,0,true,0.158,[FIX] PROJECT: Redirect anonymous users to login instead of a 500 on the pipeline tab view
+horilla,8d42764,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.159,[FIX] ONBOARDING: Fixed the Unauthenticated access fixes
+horilla,eb0ce9b,2026-11-10,UNRELATED_APP_CODE,2,4,0,true,0.16,[UPDT] HORILLA_VIEWS: Improve handling of dynamic creation and modal interactions in select fields
+horilla,3e0eb7d,2026-11-10,SKILL_GROUNDED_APP_CODE,2,4,1,false,0.326,"[ADD] RECRUITMENT: Show how many places are filled beside the pipeline title, with a popover of figures per job position"
+horilla,c5715d3,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.23,[FIX] HORILLA_THEME: Remove tooltips left behind when their element is redrawn under the cursor
+horilla,b8f29f5,2026-11-10,UNRELATED_APP_CODE,5,4,0,true,0.156,[UPDT] HORILLA_THEME: Enhance select2 functionality with clear button support and improve integration with required fiel
+horilla,4a92f2f,2026-11-10,UNRELATED_APP_CODE,2,4,0,true,0.144,[FIX] HORILLA_AUTOMATIONS: Keep condition fields and Boolean values consistent when saving a mail automation
+horilla,4cf07ee,2026-11-10,UNRELATED_APP_CODE,2,4,0,true,0.144,[UPDT] HEALPDESK: Update department selection to use jQuery for employee loading and enhance validation logic
+horilla,91cace3,2026-11-10,SKILL_GROUNDED_APP_CODE,2,4,1,false,0.253,[FIX] BASE: Authorize each file in protected_media against the record that owns it
+horilla,e8637ac,2026-11-10,SKILL_GROUNDED_APP_CODE,8,4,2,false,0.423,"[ADD] RECRUITMENT: Add a Vacancy step with one line per job position, and a headcount on Job Position that limits vacanc"
+horilla,c37fa38,2026-11-10,UNRELATED_APP_CODE,21,4,0,true,0.192,"[FIX] DASHBOARDS: Apply HORILLA_FIRST_DAY_OF_WEEK to dashboards, reports, filters and the roster (#1362)"
+horilla,9ff4c03,2026-11-10,UNRELATED_APP_CODE,2,4,0,true,0.158,[FIX] RECRUITMENT: Keep the vacancy indicator current after changes and stop its popover opening over dialogs
+horilla,1fa9015,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.198,[FIX] ATTENDANCE: #1369
+horilla,066421e,2026-11-10,TESTS_ONLY,1,4,0,true,0.172,[FIX] ATTENDANCE: Report an invalid or missing id in the allowed IP edit instead of a 500
+horilla,3bb18f9,2026-11-10,UNRELATED_APP_CODE,2,4,0,true,0.168,[UPDT] ATTENDANE: Remove click event handling for data point selection in pending hour chart
+horilla,ae475ad,2026-11-10,UNRELATED_APP_CODE,4,4,0,true,0.178,[UPDT] RECRUITMENT: Flag over-selected positions on the pipeline nav and redesign the vacancy popover
+horilla,f5557ad,2026-11-10,UNRELATED_APP_CODE,4,4,0,true,0.232,[FIX] ATTENDANCE: Accept a JSON string of ids in the bulk delete instead of returning a 500
+horilla,fcbe184,2026-11-10,DOCS_CI_DEPS_ONLY,0,4,0,true,0.161,Merge pull request #1370 from ft-mammoo (resolved to the existing fix)
+horilla,f77a2c2,2026-11-10,SKILL_GROUNDED_APP_CODE,1,4,1,false,0.291,[FIX] BASE: Added validation for selected time format in save_time_format function
+horilla,e28003a,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.161,[FIX] RECRUITMENT: Fixed redirect for candidate rating functions to use cbv URL
+horilla,ec6fdc2,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.159,[FIX] HORILLA_THEME: #1368
+horilla,c22e66a,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.161,[FIX] STATIC: #1368
+horilla,d73c649,2026-11-10,UNRELATED_APP_CODE,2,4,0,true,0.161,[UPDT] PMS: Updated the missing dark theme styles
+horilla,c550ca6,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.159,[UPDT] PAYROLL: Updated the missing dark theme styles
+horilla,1bd2a7f,2026-11-10,UNRELATED_APP_CODE,3,4,0,true,0.169,[UPDT] HORILLA_THEME: Updated the missing dark theme styles
+horilla,5bd0765,2026-11-10,UNRELATED_APP_CODE,7,4,0,true,0.189,[UPDT] ATTENDANCE: Updated the missing dark theme styles
+horilla,14201a8,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.175,[FIX] PMS: Fixed the Unauthenticated access fixes
+horilla,67f65ce,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.171,[FIX] OFFBOARDING: Fixed the Unauthenticated access fixes
+horilla,80bea6f,2026-11-10,SKILL_GROUNDED_APP_CODE,3,4,2,false,0.304,[UPDT] HORILLA_THEME: Updated the form for error message to dissapear on field change
+horilla,70ff69c,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.17,[FIX] HORILLA: Fix the delete confirmation dialog and make it load much faster
+horilla,1aa4f37,2026-11-10,UNRELATED_APP_CODE,1,4,0,true,0.174,[FIX] PROJECT: Fixed the Unauthenticated access fixes
+horilla,9558736,2026-11-10,UNRELATED_APP_CODE,3,4,0,true,0.172,[UPDT] ASSET: Updated asset deletion response and updated action column for improved UX
+horilla,7fa1e00,2026-11-10,UNRELATED_APP_CODE,6,4,0,true,0.236,[UPDT] OFFBOARDING: Update Resignation list filter fixes
+horilla,5f71e6d,2026-11-10,UNRELATED_APP_CODE,4,4,0,true,0.169,[FIX] HORILLA_THEME: Show 00:00:00 instead of NaN:NaN:NaN in the tab title when there is no worked time
+horilla,6a9053e,2026-11-10,SKILL_GROUNDED_APP_CODE,2,4,1,false,0.214,[FIX] BASE: Keep the username and show field-specific errors on a failed sign-in
+horilla,c7fdedc,2026-11-10,UNRELATED_APP_CODE,2,4,0,true,0.188,[FIX] ONBOARDING: Pre-fill the selected candidates in the stage Bulk Mail form
+horilla,c2a1595,2026-11-09,UNRELATED_APP_CODE,2,4,0,true,0.169,"[ADD] PAYROLL: Add an Advanced filter builder, Taxable / Pre-Tax and Confirmed By filters to the Arrears & Recovery list"
+horilla,472fe61,2026-11-09,UNRELATED_APP_CODE,1,4,0,true,0.205,[FIX] PAYROLL: Send the page to the batch list when deleting a payslip removes its batch
+horilla,ef97cb0,2026-11-09,UNRELATED_APP_CODE,2,4,0,true,0.165,"[UPDT] PAYROLL: Show review problems as an alert icon with a white popover, add a Badge ID column, tighten the rows and "
+horilla,545e2cc,2026-11-09,UNRELATED_APP_CODE,3,4,0,true,0.171,[UPDT] RECRUITMENT: Enhance pipeline management with new wizard steps and validation
+horilla,ce964ee,2026-11-09,UNRELATED_APP_CODE,13,4,0,true,0.198,[ADD] PAYROLL: Add Arrears & Recovery entries that make a pay line when confirmed
+horilla,49fcb90,2026-11-09,UNRELATED_APP_CODE,5,4,0,true,0.183,"[UPDT] PAYROLL: Speed up payslip generation with per-employee caches, fewer queries and parallel slices"
+horilla,8d35750,2026-11-09,UNRELATED_APP_CODE,9,4,0,true,0.187,"[ADD] PAYROLL: Add an Excel import to the Arrears & Recovery list, previewed and checked before any entry is saved as a "
+horilla,d1200ea,2026-11-09,UNRELATED_APP_CODE,5,4,0,true,0.181,[FIX] Attendance: improve dark mode styling in Monthly Attendance Summary

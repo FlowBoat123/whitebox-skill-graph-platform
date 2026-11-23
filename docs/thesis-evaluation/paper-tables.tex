@@ -1,0 +1,52 @@
+% Auto-generated IEEE booktabs tables for White-Box Composable Skill Graph evaluation
+% Requires: \usepackage{booktabs}
+
+\begin{table*}[t]
+\centering
+\caption{RQ1: Cost and Latency Amortization Across Repeated Verification Cycles (DeepSeek-V3.2)}
+\label{tab:rq1-amortization}
+\begin{tabular}{rlrrrrrrr}
+\toprule
+$N$ & Basis & Pure Calls & Pure Cost (\$) & Pure Time (s) & SG Calls & SG Cost (\$) & SG Time (s) & Savings (\%) \\
+\midrule
+1 & Measured & 14.4 & \$0.00544 & 102.3 & 7 & \$0.00322 & 5.1 & 40.81\% \\
+5 & Measured & 72 & \$0.02722 & 511.7 & 7 & \$0.00322 & 25.4 & 88.17\% \\
+10 & Projected & 144 & \$0.05443 & 1023.4 & 7 & \$0.00322 & 50.7 & 94.08\% \\
+25 & Projected & 360 & \$0.13608 & 2558.6 & 8 & \$0.00443 & 126.9 & 96.74\% \\
+50 & Projected & 720 & \$0.27215 & 5117.2 & 9 & \$0.00564 & 253.7 & 97.93\% \\
+100 & Projected & 1440 & \$0.54430 & 10234.3 & 11 & \$0.00807 & 507.4 & 98.52\% \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{RQ2: Self-Healing Recovery (DRR), Attempted Postcondition Weakening (AWR), False Healing Rate (FHR), and Impact Selection on EvoBench-24}
+\label{tab:rq2-evobench}
+\begin{tabular}{lrrrrrr}
+\toprule
+System Variant & DRR ($\uparrow$) & AWR ($\downarrow$) & FHR ($\downarrow$) & Bug Det. ($\uparrow$) & Heal Calls & Test Red. \\
+\midrule
+Static Semantic Script (No Heal) & 0\% (0/8) & 0\% (0/10) & 0\% (0/10) & 100\% (10/10) & 0 & 0\% \\
+Black-Box Self-Healer (Ablation A) & 62.5\% (5/8) & 50\% (5/10) & 0\% (0/10) & 100\% (10/10) & 18 & 0\% \\
+Telemetry-Gated No-Diff (Ablation B) & 75\% (6/8) & 0\% (0/10) & 0\% (0/10) & 100\% (10/10) & 8 & 83.55\% \\
+White-Box Skill Graph (Ours) & 87.5\% (7/8) & 0\% (0/10) & 0\% (0/10) & 100\% (10/10) & 8 & 83.55\% \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table}[t]
+\centering
+\caption{RQ3: Cross-Stack Skill Authoring and Generalization Gate Ablation}
+\label{tab:rq3-authoring}
+\begin{tabular}{llrll}
+\toprule
+Skill ID & Stack & Calls & With Gate & Without Gate \\
+\midrule
+\texttt{tx.comment} & React & 4 & VERIFIED\_PASS & SKILL\_DRIFT \\
+\texttt{user.settings\_update} & React & 4 & VERIFIED\_PASS & PRODUCT\_BUG \\
+\texttt{work\_type.create} & Django & 10 & VERIFIED\_PASS & PRODUCT\_BUG \\
+\texttt{department.delete} & Django & 10 & PRODUCT\_BUG & SKILL\_DRIFT \\
+\bottomrule
+\end{tabular}
+\end{table}

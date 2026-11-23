@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="286" viewBox="0 0 720 286">
+  <defs>
+    <style>
+      text { font-family: Segoe UI, Arial, Helvetica, sans-serif; fill: #0F172A; }
+      .title { font-size: 12px; font-weight: 700; }
+      .subtitle { font-size: 10px; font-weight: 600; fill: #475569; }
+      .label { font-size: 9.5px; font-weight: 500; }
+      .label-bold { font-size: 9.5px; font-weight: 700; }
+      .tick { font-size: 8.5px; fill: #475569; }
+      .small { font-size: 8.2px; fill: #475569; }
+      .badge { font-size: 8.5px; font-weight: 700; }
+    </style>
+    <marker id="arrow-dark" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.2 L 9 5 L 0 8.8 z" fill="#334155" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.2 L 9 5 L 0 8.8 z" fill="#0072B2" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.2 L 9 5 L 0 8.8 z" fill="#B91C1C" />
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.2 L 9 5 L 0 8.8 z" fill="#009E73" />
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="720" height="286" fill="#FFFFFF" />
+
+  <!-- Left Panel Title -->
+  <text x="237" y="20" text-anchor="middle" class="title">(a) Cross-Model Drift Recovery &amp; Bug Safety (3 LLM Families)</text>
+  <text x="237" y="33" text-anchor="middle" class="small">8 shared drifts + 4 bugs per model | WB achieves 24/24 DRR &amp; 0/12 FHR</text>
+
+  <!-- Left Panel Grid -->
+    <line x1="48" y1="224.0" x2="426" y2="224.0" stroke="#E2E8F0" stroke-dasharray="3 2" />
+  <text x="42" y="227.0" text-anchor="end" class="tick">0%</text>
+  <line x1="48" y1="189.4" x2="426" y2="189.4" stroke="#E2E8F0" stroke-dasharray="3 2" />
+  <text x="42" y="192.4" text-anchor="end" class="tick">25%</text>
+  <line x1="48" y1="154.7" x2="426" y2="154.7" stroke="#E2E8F0" stroke-dasharray="3 2" />
+  <text x="42" y="157.7" text-anchor="end" class="tick">50%</text>
+  <line x1="48" y1="120.1" x2="426" y2="120.1" stroke="#E2E8F0" stroke-dasharray="3 2" />
+  <text x="42" y="123.1" text-anchor="end" class="tick">75%</text>
+  <line x1="48" y1="85.4" x2="426" y2="85.4" stroke="#E2E8F0" stroke-dasharray="3 2" />
+  <text x="42" y="88.4" text-anchor="end" class="tick">100%</text>
+  <line x1="48" y1="66" x2="48" y2="224" stroke="#334155" stroke-width="1.2" />
+  <line x1="48" y1="224" x2="426" y2="224" stroke="#334155" stroke-width="1.2" />
+  <text x="14" y="145" text-anchor="middle" class="label" transform="rotate(-90 14 145)">Drift Recovery Rate (%)</text>
+
+  <!-- Grouped Bars -->
+    <rect x="74.0" y="85.4" width="34" height="138.6" fill="#0072B2" rx="2" />
+  <text x="91.0" y="81.4" text-anchor="middle" class="badge" style="fill:#0072B2">8/8</text>
+  <rect x="114.0" y="154.7" width="34" height="69.3" fill="#FDBA74" stroke="#D55E00" stroke-width="1.2" rx="2" />
+  <text x="131.0" y="150.7" text-anchor="middle" class="badge" style="fill:#D55E00">4/8</text>
+  <text x="111.0" y="239" text-anchor="middle" class="label-bold">DeepSeek-V3.2</text>
+  <text x="111.0" y="251" text-anchor="middle" class="small" style="fill:#0072B2">WB: 0 bug calls / 0% FHR</text>
+  <text x="111.0" y="263" text-anchor="middle" class="small" style="fill:#475569;font-weight:500">BB: 12 calls wasted</text>
+  <rect x="200.0" y="85.4" width="34" height="138.6" fill="#0072B2" rx="2" />
+  <text x="217.0" y="81.4" text-anchor="middle" class="badge" style="fill:#0072B2">8/8</text>
+  <rect x="240.0" y="102.7" width="34" height="121.3" fill="#FDBA74" stroke="#D55E00" stroke-width="1.2" rx="2" />
+  <text x="257.0" y="98.7" text-anchor="middle" class="badge" style="fill:#D55E00">7/8</text>
+  <text x="237.0" y="239" text-anchor="middle" class="label-bold">Gemini-2.5-Flash</text>
+  <text x="237.0" y="251" text-anchor="middle" class="small" style="fill:#0072B2">WB: 0 bug calls / 0% FHR</text>
+  <text x="237.0" y="263" text-anchor="middle" class="small" style="fill:#B91C1C;font-weight:700">BB: 1/4 FALSE HEAL!</text>
+  <rect x="326.0" y="85.4" width="34" height="138.6" fill="#0072B2" rx="2" />
+  <text x="343.0" y="81.4" text-anchor="middle" class="badge" style="fill:#0072B2">8/8</text>
+  <rect x="366.0" y="120.1" width="34" height="103.9" fill="#FDBA74" stroke="#D55E00" stroke-width="1.2" rx="2" />
+  <text x="383.0" y="116.1" text-anchor="middle" class="badge" style="fill:#D55E00">6/8</text>
+  <text x="363.0" y="239" text-anchor="middle" class="label-bold">GPT-4o-mini</text>
+  <text x="363.0" y="251" text-anchor="middle" class="small" style="fill:#0072B2">WB: 0 bug calls / 0% FHR</text>
+  <text x="363.0" y="263" text-anchor="middle" class="small" style="fill:#D97706;font-weight:500">BB: 1/4 weakened</text>
+
+  <!-- Left Panel Legend (positioned cleanly above plot area) -->
+  <rect x="126" y="41" width="222" height="19" rx="3" fill="#F8FAFC" stroke="#E2E8F0" />
+  <rect x="134" y="46.5" width="9" height="8" fill="#0072B2" />
+  <text x="147" y="53.5" class="small" style="fill:#0F172A;font-weight:600">White-Box (k&lt;=2)</text>
+  <rect x="238" y="46.5" width="9" height="8" fill="#FDBA74" stroke="#D55E00" />
+  <text x="251" y="53.5" class="small" style="fill:#0F172A;font-weight:600">Black-Box Healer</text>
+
+  <!-- Divider -->
+  <line x1="444" y1="18" x2="444" y2="274" stroke="#E2E8F0" stroke-width="1" />
+
+  <!-- Right Panel Title -->
+  <text x="582" y="20" text-anchor="middle" class="title">(b) Heal Cost &amp; Cross-Stack Authoring</text>
+  <text x="582" y="33" text-anchor="middle" class="small">Total USD across 8 drifts + 4 bugs (WB vs BB)</text>
+
+  <!-- Horizontal Cost Bars per Model -->
+    <text x="538" y="76" text-anchor="end" class="label-bold" style="font-size:8.8px">DeepSeek-V3.2</text>
+  <text x="538" y="89" text-anchor="end" class="small">Author: 2/2</text>
+  <!-- WB Bar -->
+  <rect x="544" y="66" width="44.7" height="12" fill="#0072B2" rx="2" />
+  <text x="592.7" y="75.5" class="badge" style="fill:#0072B2;font-size:8px">WB $0.0099</text>
+  <!-- BB Bar -->
+  <rect x="544" y="81" width="65.6" height="12" fill="#FDBA74" stroke="#D55E00" stroke-width="1" rx="2" />
+  <text x="613.6" y="90.5" class="small" style="fill:#D55E00;font-size:8px">BB $0.0146</text>
+  <text x="538" y="130" text-anchor="end" class="label-bold" style="font-size:8.8px">Gemini-2.5-Flash</text>
+  <text x="538" y="143" text-anchor="end" class="small">Author: 1/2</text>
+  <!-- WB Bar -->
+  <rect x="544" y="120" width="95.4" height="12" fill="#0072B2" rx="2" />
+  <text x="643.4" y="129.5" class="badge" style="fill:#0072B2;font-size:8px">WB $0.0212</text>
+  <!-- BB Bar -->
+  <rect x="544" y="135" width="128.1" height="12" fill="#FDBA74" stroke="#D55E00" stroke-width="1" rx="2" />
+  <text x="676.1" y="144.5" class="small" style="fill:#D55E00;font-size:8px">BB $0.0285</text>
+  <text x="538" y="184" text-anchor="end" class="label-bold" style="font-size:8.8px">GPT-4o-mini</text>
+  <text x="538" y="197" text-anchor="end" class="small">Author: 2/2</text>
+  <!-- WB Bar -->
+  <rect x="544" y="174" width="17.0" height="12" fill="#0072B2" rx="2" />
+  <text x="565.0" y="183.5" class="badge" style="fill:#0072B2;font-size:8px">WB $0.0038</text>
+  <!-- BB Bar -->
+  <rect x="544" y="189" width="22.5" height="12" fill="#FDBA74" stroke="#D55E00" stroke-width="1" rx="2" />
+  <text x="570.5" y="198.5" class="small" style="fill:#D55E00;font-size:8px">BB $0.0050</text>
+
+  <!-- Bottom takeaway banner on right -->
+  <rect x="466" y="232" width="232" height="38" rx="4" fill="#DBEAFE" stroke="#0072B2" stroke-width="1" />
+  <text x="582" y="247" text-anchor="middle" class="badge" style="fill:#0072B2">Model-Agnostic Safety Invariant</text>
+  <text x="582" y="261" text-anchor="middle" class="small" style="fill:#0F172A">Cheapest WB: GPT-4o-mini ($0.0038 / 8 drifts)</text>
+
+</svg>

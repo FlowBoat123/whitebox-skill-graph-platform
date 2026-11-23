@@ -1,0 +1,5 @@
+system,drift_recovered,drift_total,drr_pct,attempted_weakening,attempted_weakening_pct,false_heals,bug_total,fhr_pct,bugs_detected,bug_detection_pct,heal_llm_calls,heal_usd,test_reduction_pct
+Static Semantic Script (No Heal),0,8,0,0,0,0,10,0,10,100,0,0,0
+Black-Box Self-Healer (Ablation A),5,8,62.5,5,50,0,10,0,10,100,18,0.021341,0
+Telemetry-Gated No-Diff (Ablation B),6,8,75,0,0,0,10,0,10,100,8,0.00939,83.55
+White-Box Skill Graph (Ours),7,8,87.5,0,0,0,10,0,10,100,8,0.009697,83.55
