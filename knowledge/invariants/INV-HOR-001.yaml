@@ -1,0 +1,22 @@
+schemaVersion: 1
+id: INV-HOR-001
+title: Commit HRMS form and delete mutations and synchronize HTMX views
+statement: Horilla HRMS entity creation, filtering, and deletion handlers must commit database changes and reflect updated records in HTMX responses without HTTP 5xx or unhandled JS exceptions.
+rationale: Prevents silent form.save() omissions and broken HR entity management modals masked by HTTP 200 responses.
+severity: P1
+status: ACTIVE
+owner: qa-platform
+appliesTo:
+  projects:
+    - horilla
+  pathGlobs:
+    - base/cbv/**
+    - base/views.py
+    - base/forms.py
+    - horilla_views/**
+    - horilla_theme/templates/**
+  codeUnitKinds:
+    - FILE
+    - API_ENDPOINT
+sourceRefs: []
+supersedes: []

@@ -1,0 +1,8 @@
+schemaVersion: 1
+id: DF-DATA_QUERY_PERSISTENCE
+name: Data query and persistence
+description: Dữ liệu đọc hoặc ghi bị thiếu, trùng, sai mapping, sai phạm vi, sai thứ tự hoặc không nhất quán.
+mechanism: Query, join, filter, pagination, mapping hoặc transaction boundary được triển khai sai.
+status: ACTIVE
+owner: backend-team
+sourceRefs: []

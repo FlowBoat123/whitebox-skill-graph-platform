@@ -1,0 +1,39 @@
+sourceRefs:
+  - contentHash: null
+    commitSha: null
+    uri: https://redmine.example/issues/12345
+    kind: REDMINE_ISSUE
+resolution:
+  guardrailException: null
+  regressionGuardrails:
+    - GRD-FE-CRUD-001
+  fixMergeRequest: MR:frontend:256:0123456789abcdef0123456789abcdef01234567
+impact:
+  siblingScan:
+    candidates:
+      - evidenceRef: null
+        verdict: SAFE
+        codeUnit: frontend:ts:ANGULAR_SERVICE:projects/shared-lib/src/lib/navigation/menu-cache.service.ts#MenuCacheService
+    method: AST search for mutations that share the menu cache
+    status: COMPLETED
+  affectedCodeUnits:
+    - frontend:ts:ANGULAR_COMPONENT:projects/campaign-app/src/app/modules/menu/menu-page.component.ts#MenuPageComponent
+analysis:
+  violatedInvariants:
+    - INV-FE-001
+  escapeReason: Luồng kiểm thử chỉ xác nhận response thành công, không kiểm tra danh sách.
+  enablingCondition: Component đọc lại cùng cache đã tồn tại trước mutation.
+  directCause: Mutation hoàn tất nhưng shared cache không được invalidate.
+  trigger: Người dùng sửa bản ghi rồi quay lại danh sách.
+  symptom: Danh sách vẫn hiển thị dữ liệu cũ sau khi lưu.
+classification:
+  defectFamily: DF-STALE_UI_STATE
+source:
+  issueUrl: https://gitlab.example/group/frontend/-/issues/12345
+  issueIid: 12345
+  projectKey: frontend
+owner: developer-a
+severity: P2
+status: CONFIRMED
+id: BUG:frontend:12345
+schemaVersion: 1

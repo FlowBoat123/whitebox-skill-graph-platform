@@ -1,0 +1,13 @@
+schemaVersion: 1
+id: DF-STALE_UI_STATE
+name: Stale UI state
+description: Dữ liệu giao diện không phản ánh mutation đã hoàn tất.
+mechanism: Cache hoặc local state không được invalidate sau mutation.
+status: ACTIVE
+owner: frontend-team
+sourceRefs:
+  - kind: GIT_COMMIT
+    uri: https://gitlab.example/group/frontend/-/commit/not-a-sha
+    commitSha: not-a-sha
+    contentHash: ABCD
+

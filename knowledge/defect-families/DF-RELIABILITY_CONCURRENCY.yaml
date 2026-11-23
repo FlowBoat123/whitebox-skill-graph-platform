@@ -1,0 +1,8 @@
+schemaVersion: 1
+id: DF-RELIABILITY_CONCURRENCY
+name: Reliability and concurrency
+description: Retry, thao tác đồng thời, timeout hoặc tải lớn gây trùng dữ liệu, mất cập nhật hay trạng thái không thể phục hồi.
+mechanism: Thiếu idempotency, conflict detection, concurrency control, timeout hoặc giới hạn tài nguyên.
+status: ACTIVE
+owner: engineering-team
+sourceRefs: []

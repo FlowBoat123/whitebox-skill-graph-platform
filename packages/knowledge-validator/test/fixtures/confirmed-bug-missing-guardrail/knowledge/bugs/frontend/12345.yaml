@@ -1,0 +1,32 @@
+schemaVersion: 1
+id: BUG:frontend:12345
+status: CONFIRMED
+severity: P2
+owner: developer-a
+source:
+  projectKey: frontend
+  issueIid: 12345
+  issueUrl: https://gitlab.example/group/frontend/-/issues/12345
+classification:
+  defectFamily: DF-STALE_UI_STATE
+analysis:
+  symptom: Danh sách vẫn hiển thị dữ liệu cũ sau khi lưu.
+  trigger: Người dùng sửa bản ghi rồi quay lại danh sách.
+  directCause: Mutation hoàn tất nhưng shared cache không được invalidate.
+  enablingCondition: Component đọc lại cùng cache đã tồn tại trước mutation.
+  escapeReason: Luồng kiểm thử không xác nhận danh sách sau mutation.
+  violatedInvariants:
+    - INV-FE-001
+impact:
+  affectedCodeUnits:
+    - frontend:ts:ANGULAR_COMPONENT:projects/campaign-app/src/app/modules/menu/menu-page.component.ts#MenuPageComponent
+  siblingScan:
+    status: COMPLETED
+    method: AST search
+    candidates: []
+resolution:
+  fixMergeRequest: MR:frontend:256:0123456789abcdef0123456789abcdef01234567
+  regressionGuardrails: []
+  guardrailException: null
+sourceRefs: []
+

@@ -1,0 +1,20 @@
+schemaVersion: 1
+id: INV-FE-002
+title: Refresh every dependent view after mutation
+statement: Sau mutation thành công, mọi view phụ thuộc phải đọc trạng thái mới.
+rationale: Invariant mới làm rõ phạm vi rộng hơn của invariant trước đó.
+severity: P2
+status: ACTIVE
+owner: frontend-team
+appliesTo:
+  projects:
+    - frontend
+  pathGlobs:
+    - projects/campaign-app/src/app/**
+  codeUnitKinds:
+    - ANGULAR_COMPONENT
+    - ANGULAR_SERVICE
+sourceRefs: []
+supersedes:
+  - INV-FE-001
+

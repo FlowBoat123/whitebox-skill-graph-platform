@@ -1,0 +1,13 @@
+schemaVersion: 1
+id: GRD-RWA-TX-001
+name: Cypress RWA payment mutation white-box skill verifier
+type: SKILL_GRAPH_VERIFIER
+status: ACTIVE
+owner: qa-platform
+locator:
+  project: cypress-rwa
+  path: skills/cypress-rwa/tx.create_payment.yaml
+  ruleId: tx.create_payment
+enforces:
+  - INV-RWA-001
+sourceRefs: []

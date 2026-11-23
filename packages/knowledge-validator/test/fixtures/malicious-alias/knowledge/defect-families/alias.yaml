@@ -1,0 +1,9 @@
+schemaVersion: 1
+id: DF-MALICIOUS_ALIAS
+name: Alias expansion fixture
+description: &expansion ["payload", "payload", "payload", "payload", "payload", "payload", "payload", "payload", "payload", "payload"]
+mechanism: [*expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion, *expansion]
+status: ACTIVE
+owner: security-test
+sourceRefs: []
+

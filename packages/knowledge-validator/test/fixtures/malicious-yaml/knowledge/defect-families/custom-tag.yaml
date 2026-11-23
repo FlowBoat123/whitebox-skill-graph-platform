@@ -1,0 +1,9 @@
+schemaVersion: 1
+id: DF-MALICIOUS_TAG
+name: !execute arbitrary-command
+description: This file must never be accepted.
+mechanism: A custom YAML tag attempts to instantiate an unsupported value.
+status: ACTIVE
+owner: security-test
+sourceRefs: []
+

@@ -1,0 +1,14 @@
+schemaVersion: 1
+id: GRD-FE-CRUD-001
+name: Guardrail with an unsupported type
+type: MAGIC_AI_CHECK
+status: ACTIVE
+owner: frontend-team
+locator:
+  project: frontend
+  path: projects/example.spec.ts
+  ruleId: null
+enforces:
+  - INV-FE-001
+sourceRefs: []
+

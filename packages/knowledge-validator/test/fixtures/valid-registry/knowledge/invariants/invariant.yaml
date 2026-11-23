@@ -1,0 +1,19 @@
+schemaVersion: 1
+id: INV-FE-001
+title: Refresh state after a successful mutation
+statement: Sau mutation thành công, nơi hiển thị dữ liệu phải phản ánh trạng thái mới.
+rationale: Ngăn người dùng tiếp tục nhìn thấy dữ liệu cũ sau khi lưu.
+severity: P2
+status: ACTIVE
+owner: frontend-team
+appliesTo:
+  projects:
+    - frontend
+  pathGlobs:
+    - projects/campaign-app/src/app/modules/**
+  codeUnitKinds:
+    - ANGULAR_COMPONENT
+    - ANGULAR_SERVICE
+sourceRefs: []
+supersedes: []
+

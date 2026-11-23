@@ -1,0 +1,30 @@
+schemaVersion: 1
+id: BUG:frontend:12345
+status: DRAFT
+severity: P2
+owner: developer-a
+source:
+  projectKey: frontend
+  issueIid: 12345
+  issueUrl: https://gitlab.example/group/frontend/-/issues/12345
+classification:
+  defectFamily: DF-STALE_UI_STATE
+analysis:
+  symptom: Path traversal in Python stable key must be rejected.
+  trigger: Invalid path segment.
+  directCause: Path traversal segment.
+  enablingCondition: Unsanitized path.
+  escapeReason: Test fixture.
+  violatedInvariants: []
+impact:
+  affectedCodeUnits:
+    - horilla:py:FILE:../secret.py#file
+  siblingScan:
+    status: PENDING
+    method: null
+    candidates: []
+resolution:
+  fixMergeRequest: null
+  regressionGuardrails: []
+  guardrailException: null
+sourceRefs: []

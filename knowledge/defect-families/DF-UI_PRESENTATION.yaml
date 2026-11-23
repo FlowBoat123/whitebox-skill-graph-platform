@@ -1,0 +1,8 @@
+schemaVersion: 1
+id: DF-UI_PRESENTATION
+name: UI presentation and layout
+description: Bố cục hoặc nội dung giao diện bị tràn, chồng lấn, cắt mất, sai style hay không đáp ứng kích thước được hỗ trợ.
+mechanism: Constraint layout, CSS override, nội dung động hoặc breakpoint không được xử lý nhất quán.
+status: ACTIVE
+owner: frontend-team
+sourceRefs: []

@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "title": "Knowledge Registry Common Definitions",
+  "$defs": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "projectKey": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$",
+      "maxLength": 128
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["P0", "P1", "P2", "P3"]
+    },
+    "defectFamilyId": {
+      "type": "string",
+      "pattern": "^DF-[A-Z0-9_]+$"
+    },
+    "invariantId": {
+      "type": "string",
+      "pattern": "^INV-[A-Z0-9]+(?:-[A-Z0-9]+)*-[0-9]{3}$"
+    },
+    "guardrailId": {
+      "type": "string",
+      "pattern": "^GRD-[A-Z0-9-]+$"
+    },
+    "bugId": {
+      "type": "string",
+      "pattern": "^BUG:[A-Za-z0-9][A-Za-z0-9._-]*:[1-9][0-9]*$"
+    },
+    "evidenceId": {
+      "type": "string",
+      "pattern": "^EVD-[A-Z0-9][A-Z0-9_-]*$"
+    },
+    "gitCommitSha": {
+      "type": "string",
+      "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "isoDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])$"
+    },
+    "uri": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 4096,
+      "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:[^\\s]+$"
+    },
+    "codeUnitKind": {
+      "type": "string",
+      "enum": [
+        "MODULE",
+        "FILE",
+        "CLASS",
+        "INTERFACE",
+        "METHOD",
+        "FUNCTION",
+        "ANGULAR_COMPONENT",
+        "ANGULAR_SERVICE",
+        "API_ENDPOINT",
+        "DTO",
+        "DATABASE_TABLE",
+        "DATABASE_COLUMN",
+        "TEST"
+      ]
+    },
+    "codeUnitId": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 2048,
+      "oneOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*:ts:(?:MODULE|FILE|CLASS|INTERFACE|METHOD|FUNCTION|ANGULAR_COMPONENT|ANGULAR_SERVICE|API_ENDPOINT|DTO|TEST):[^#\\r\\n]+#[^#\\r\\n]+$"
+        },
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*:java:(?:MODULE|FILE|CLASS|INTERFACE|METHOD|API_ENDPOINT|DTO|DATABASE_TABLE|DATABASE_COLUMN|TEST):[A-Za-z_$][A-Za-z0-9_$]*(?:\\.[A-Za-z_$][A-Za-z0-9_$]*)*#[^#\\r\\n]+$"
+        },
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*:py:(?:MODULE|FILE|CLASS|METHOD|FUNCTION|API_ENDPOINT|TEST):[^#\\r\\n]+#[^#\\r\\n]+$"
+        },
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*:template:FILE:[^#\\r\\n]+#[^#\\r\\n]+$"
+        },
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*:api:(?:GET|HEAD|POST|PUT|PATCH|DELETE|OPTIONS):/[^\\s]*$"
+        },
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*:db:[A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)?$"
+        }
+      ]
+    },
+    "changeId": {
+      "type": "string",
+      "pattern": "^MR:[A-Za-z0-9][A-Za-z0-9._-]*:[1-9][0-9]*:(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+    },
+    "sourceRefKind": {
+      "type": "string",
+      "enum": [
+        "REDMINE_ISSUE",
+        "GITLAB_ISSUE",
+        "GITLAB_MERGE_REQUEST",
+        "GIT_COMMIT",
+        "SOURCE_FILE",
+        "TEST_REPORT",
+        "STATIC_ANALYSIS",
+        "RUNTIME_TRACE",
+        "HUMAN_CONFIRMATION"
+      ]
+    },
+    "sourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "uri", "commitSha", "contentHash"],
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/sourceRefKind"
+        },
+        "uri": {
+          "$ref": "#/$defs/uri"
+        },
+        "commitSha": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/gitCommitSha"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "contentHash": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": ["kind"],
+            "properties": {
+              "kind": {
+                "enum": ["GIT_COMMIT", "SOURCE_FILE"]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "commitSha": {
+                "$ref": "#/$defs/gitCommitSha"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sourceRef"
+      },
+      "uniqueItems": true
+    }
+  }
+}

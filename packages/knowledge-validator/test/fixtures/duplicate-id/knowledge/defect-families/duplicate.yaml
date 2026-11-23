@@ -1,0 +1,9 @@
+schemaVersion: 1
+id: DF-STALE_UI_STATE
+name: Duplicate family
+description: Cùng ID với family trong valid registry.
+mechanism: Fixture dùng để kiểm tra duplicate ID.
+status: ACTIVE
+owner: test-team
+sourceRefs: []
+

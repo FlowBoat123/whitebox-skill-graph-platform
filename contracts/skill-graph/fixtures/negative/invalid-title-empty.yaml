@@ -1,0 +1,23 @@
+schemaVersion: 1
+id: department.bad_title
+app: horilla
+description: Negative fixture with empty title target value.
+preconditions: []
+produces:
+  - name: department.deleted
+inputs: {}
+codeRefs:
+  routes:
+    - /settings/department-view/
+  endpoints:
+    - POST /generic-delete/
+  sourceFiles:
+    - base/cbv/department.py
+steps:
+  - op: CLICK
+    target:
+      strategy: title
+      value: ""
+postconditions:
+  - kind: CONSOLE_ERRORS
+    maxCount: 0

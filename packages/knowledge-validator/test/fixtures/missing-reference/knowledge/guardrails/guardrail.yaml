@@ -1,0 +1,14 @@
+schemaVersion: 1
+id: GRD-FE-CRUD-001
+name: Guardrail with an unknown invariant
+type: REGRESSION_TEST
+status: ACTIVE
+owner: frontend-team
+locator:
+  project: frontend
+  path: projects/campaign-app/src/app/modules/menu/menu-page.component.spec.ts
+  ruleId: null
+enforces:
+  - INV-FE-999
+sourceRefs: []
+

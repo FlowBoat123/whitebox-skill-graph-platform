@@ -1,0 +1,18 @@
+schemaVersion: 1
+id: INV-FE-002
+title: First invariant in a cycle
+statement: Invariant 002 exists only to exercise cycle detection.
+rationale: A supersedes relation must remain acyclic.
+severity: P2
+status: ACTIVE
+owner: test-team
+appliesTo:
+  projects:
+    - frontend
+  pathGlobs: []
+  codeUnitKinds:
+    - ANGULAR_COMPONENT
+sourceRefs: []
+supersedes:
+  - INV-FE-003
+

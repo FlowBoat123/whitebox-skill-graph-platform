@@ -1,0 +1,8 @@
+schemaVersion: 1
+id: DF-UI_STATE_INTERACTION
+name: UI state and interaction
+description: Trạng thái, hành vi control hoặc dữ liệu hiển thị trên UI không đồng bộ với trạng thái thực tế.
+mechanism: Cache, local state, event hoặc lifecycle của component không được cập nhật, refresh hay invalidate đúng lúc.
+status: ACTIVE
+owner: frontend-team
+sourceRefs: []

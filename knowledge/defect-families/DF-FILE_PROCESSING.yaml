@@ -1,0 +1,8 @@
+schemaVersion: 1
+id: DF-FILE_PROCESSING
+name: File transfer and processing
+description: Upload, download, preview, import, export hoặc phân tích tệp cho kết quả sai hay không tương thích.
+mechanism: MIME, extension, parser, encoding, dung lượng hoặc lifecycle lưu trữ tệp được xử lý không nhất quán.
+status: ACTIVE
+owner: engineering-team
+sourceRefs: []

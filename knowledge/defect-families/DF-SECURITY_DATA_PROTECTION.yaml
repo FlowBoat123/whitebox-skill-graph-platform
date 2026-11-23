@@ -1,0 +1,8 @@
+schemaVersion: 1
+id: DF-SECURITY_DATA_PROTECTION
+name: Security and data protection
+description: Dữ liệu không tin cậy hoặc thông tin nhạy cảm bị xử lý theo cách cho phép khai thác hay làm lộ dữ liệu.
+mechanism: Thiếu validation, contextual encoding, safe API, data minimization hoặc kiểm soát log và response.
+status: ACTIVE
+owner: security-team
+sourceRefs: []

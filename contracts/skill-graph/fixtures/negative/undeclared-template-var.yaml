@@ -1,0 +1,26 @@
+schemaVersion: 1
+id: bank.undeclared_var
+app: cypress-rwa
+description: Invalid fixture referencing an undeclared template placeholder.
+preconditions: []
+produces: []
+inputs:
+  bankName:
+    type: string
+    required: true
+codeRefs:
+  routes:
+    - /bankaccounts/new
+  endpoints:
+    - POST /graphql
+  sourceFiles:
+    - src/components/BankAccountForm.tsx
+steps:
+  - op: FILL
+    target:
+      strategy: placeholder
+      value: Bank Name
+    value: "{{ghostVariable}}"
+postconditions:
+  - kind: DOM_CONTAINS
+    text: "{{bankName}}"

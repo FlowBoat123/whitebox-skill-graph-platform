@@ -1,0 +1,7 @@
+* text=auto
+*.sh text eol=lf
+mvnw text eol=lf
+*.cmd text eol=crlf
+*.jar binary
+# Golden source hashes are byte-based on every platform.
+contracts/codegraph/fixtures/positive/source/** text eol=lf

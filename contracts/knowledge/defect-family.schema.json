@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "defect-family.schema.json",
+  "title": "Defect Family Knowledge Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "name",
+    "description",
+    "mechanism",
+    "status",
+    "owner",
+    "sourceRefs"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "$ref": "common.schema.json#/$defs/schemaVersion"
+    },
+    "id": {
+      "$ref": "common.schema.json#/$defs/defectFamilyId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/nonEmptyString"
+    },
+    "description": {
+      "$ref": "common.schema.json#/$defs/nonEmptyString"
+    },
+    "mechanism": {
+      "$ref": "common.schema.json#/$defs/nonEmptyString"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["PROPOSED", "ACTIVE", "DEPRECATED"]
+    },
+    "owner": {
+      "$ref": "common.schema.json#/$defs/nonEmptyString"
+    },
+    "sourceRefs": {
+      "$ref": "common.schema.json#/$defs/sourceRefs"
+    }
+  }
+}

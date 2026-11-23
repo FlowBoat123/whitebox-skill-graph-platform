@@ -1,0 +1,14 @@
+schemaVersion: 1
+id: GRD-FE-CRUD-001
+name: Menu refresh regression test
+type: REGRESSION_TEST
+status: ACTIVE
+owner: frontend-team
+locator:
+  project: frontend
+  path: projects/campaign-app/src/app/modules/menu/menu-page.component.spec.ts
+  ruleId: null
+enforces:
+  - INV-FE-001
+sourceRefs: []
+

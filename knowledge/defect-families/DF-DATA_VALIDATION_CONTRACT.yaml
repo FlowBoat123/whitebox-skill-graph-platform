@@ -1,0 +1,8 @@
+schemaVersion: 1
+id: DF-DATA_VALIDATION_CONTRACT
+name: Data validation contract
+description: Dữ liệu hợp lệ bị từ chối, dữ liệu sai được chấp nhận hoặc các lớp áp dụng quy tắc không thống nhất.
+mechanism: Validation phân tán, thiếu boundary check hoặc frontend và backend hiểu khác semantic của field.
+status: ACTIVE
+owner: engineering-team
+sourceRefs: []

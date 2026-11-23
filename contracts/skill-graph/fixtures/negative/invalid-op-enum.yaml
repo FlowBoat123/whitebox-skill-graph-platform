@@ -1,0 +1,20 @@
+schemaVersion: 1
+id: bank.bad_op
+app: cypress-rwa
+description: Invalid fixture using an unregistered free-form op enum value.
+preconditions: []
+produces: []
+inputs: {}
+codeRefs:
+  routes:
+    - /bankaccounts
+  endpoints:
+    - POST /graphql
+  sourceFiles:
+    - src/components/BankAccountForm.tsx
+steps:
+  - op: MAGIC_CLICK
+    url: /bankaccounts
+postconditions:
+  - kind: CONSOLE_ERRORS
+    maxCount: 0

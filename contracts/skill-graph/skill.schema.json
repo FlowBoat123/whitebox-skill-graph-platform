@@ -1,0 +1,280 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "skill.schema.json",
+  "title": "White-Box Atomic UI Skill Definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "app",
+    "description",
+    "preconditions",
+    "produces",
+    "inputs",
+    "codeRefs",
+    "steps",
+    "postconditions"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)+$",
+      "maxLength": 100
+    },
+    "app": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,63}$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 300
+    },
+    "preconditions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/statePredicate"
+      }
+    },
+    "produces": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/statePredicate"
+      }
+    },
+    "clears": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)+$"
+      },
+      "uniqueItems": true
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/inputSpec"
+      }
+    },
+    "codeRefs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["routes", "endpoints", "sourceFiles"],
+      "properties": {
+        "routes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^/"
+          },
+          "uniqueItems": true
+        },
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(GET|POST|PUT|PATCH|DELETE) /"
+          },
+          "uniqueItems": true
+        },
+        "sourceFiles": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!/)(?!.*\\.\\.).+$"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "items": {
+        "$ref": "#/$defs/skillStep"
+      }
+    },
+    "postconditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/postcondition"
+      }
+    }
+  },
+  "$defs": {
+    "statePredicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)+$"
+        },
+        "singleton": {
+          "type": "boolean"
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "inputSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "required"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["string", "number", "boolean"]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "default": {
+          "type": "string"
+        },
+        "sensitive": {
+          "type": "boolean"
+        }
+      }
+    },
+    "semanticTarget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "value"],
+      "properties": {
+        "strategy": {
+          "type": "string",
+          "enum": ["role", "label", "placeholder", "text", "testid", "title"]
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "button",
+            "link",
+            "textbox",
+            "checkbox",
+            "radio",
+            "combobox",
+            "listitem",
+            "tab",
+            "menuitem",
+            "heading"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exact": {
+          "type": "boolean"
+        },
+        "containerText": {
+          "type": "string",
+          "minLength": 1
+        },
+        "index": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "skillStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op"],
+      "properties": {
+        "op": {
+          "type": "string",
+          "enum": [
+            "NAVIGATE",
+            "CLICK",
+            "FILL",
+            "PRESS",
+            "SELECT",
+            "WAIT_URL",
+            "ASSERT_TEXT"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "target": {
+          "$ref": "#/$defs/semanticTarget"
+        },
+        "value": {
+          "type": "string"
+        },
+        "pressEnter": {
+          "type": "boolean"
+        },
+        "expectUrl": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 200
+        }
+      }
+    },
+    "postcondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "HTTP_STATUS",
+            "CONSOLE_ERRORS",
+            "PAGE_ERRORS",
+            "URL_MATCH",
+            "DOM_CONTAINS",
+            "DOM_NOT_CONTAINS"
+          ]
+        },
+        "method": {
+          "type": "string",
+          "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "expectStatus": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 599
+        },
+        "maxCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pattern": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

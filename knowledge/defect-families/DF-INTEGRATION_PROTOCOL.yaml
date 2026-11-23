@@ -1,0 +1,8 @@
+schemaVersion: 1
+id: DF-INTEGRATION_PROTOCOL
+name: Integration protocol
+description: Frontend, backend hoặc dịch vụ ngoài không thống nhất request, response, version, status hay biểu diễn lỗi.
+mechanism: Producer và consumer dùng contract hoặc lifecycle giao tiếp khác nhau mà không có adapter hay contract test.
+status: ACTIVE
+owner: engineering-team
+sourceRefs: []

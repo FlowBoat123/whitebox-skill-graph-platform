@@ -1,0 +1,31 @@
+schemaVersion: 1
+id: BUG:frontend:12345
+status: DRAFT
+severity: P2
+owner: developer-a
+source:
+  projectKey: frontend
+  issueIid: 12345
+  issueUrl: https://gitlab.example/group/frontend/-/issues/12345
+classification:
+  defectFamily: DF-STALE_UI_STATE
+analysis:
+  symptom: Draft bug with an unknown invariant.
+  trigger: Fixture execution.
+  directCause: Investigation is in progress.
+  enablingCondition: Investigation is in progress.
+  escapeReason: Investigation is in progress.
+  violatedInvariants:
+    - INV-FE-999
+impact:
+  affectedCodeUnits: []
+  siblingScan:
+    status: PENDING
+    method: null
+    candidates: []
+resolution:
+  fixMergeRequest: null
+  regressionGuardrails: []
+  guardrailException: null
+sourceRefs: []
+

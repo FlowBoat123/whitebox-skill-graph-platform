@@ -1,0 +1,41 @@
+schemaVersion: 1
+id: BUG:horilla:5001
+status: CONFIRMED
+severity: P1
+owner: qa-platform
+source:
+  projectKey: horilla
+  issueIid: 5001
+  issueUrl: https://tracker.example/horilla/issues/5001
+classification:
+  defectFamily: DF-STALE_UI_STATE
+analysis:
+  symptom: Submitting the department creation form returns HTTP 200 without persisting the department row.
+  trigger: User submits Create Department modal in Horilla settings.
+  directCause: DepartmentCreateForm.form_valid omitted super().form_valid(form) / form.save().
+  enablingCondition: No postcondition checked DOM list persistence after HTMX 200 response.
+  escapeReason: Previous tests only asserted HTTP 200 without verifying persisted row visibility.
+  violatedInvariants:
+    - INV-HOR-001
+impact:
+  affectedCodeUnits:
+    - horilla:py:FILE:base/cbv/department.py#file
+    - horilla:template:FILE:horilla_theme/templates/generic/form.html#file
+    - horilla:api:POST:/settings-department-creation/
+  siblingScan:
+    status: COMPLETED
+    method: Audited HorillaFormView subclasses in base/cbv/
+    candidates:
+      - codeUnit: horilla:py:FILE:base/cbv/work_type_request.py#file
+        verdict: SAFE
+        evidenceRef: null
+resolution:
+  fixMergeRequest: MR:horilla:42:abcdef0123456789abcdef0123456789abcdef01
+  regressionGuardrails:
+    - GRD-HOR-DEPT-001
+  guardrailException: null
+sourceRefs:
+  - kind: RUNTIME_TRACE
+    uri: skill-graph:horilla:department.create:demo5001
+    commitSha: null
+    contentHash: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef

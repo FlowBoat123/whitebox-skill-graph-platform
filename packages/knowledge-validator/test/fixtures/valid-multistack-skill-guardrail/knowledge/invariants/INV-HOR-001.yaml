@@ -1,0 +1,19 @@
+schemaVersion: 1
+id: INV-HOR-001
+title: Persist form mutations before returning success
+statement: Django CBV creation and deletion handlers must commit database mutations and synchronize HTMX views without HTTP 5xx.
+rationale: Prevents silent data loss where HTTP 200 masks an omitted form.save() call.
+severity: P1
+status: ACTIVE
+owner: qa-platform
+appliesTo:
+  projects:
+    - horilla
+  pathGlobs:
+    - base/cbv/**
+    - horilla_views/**
+  codeUnitKinds:
+    - FILE
+    - API_ENDPOINT
+sourceRefs: []
+supersedes: []

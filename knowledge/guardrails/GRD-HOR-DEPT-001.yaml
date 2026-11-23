@@ -1,0 +1,13 @@
+schemaVersion: 1
+id: GRD-HOR-DEPT-001
+name: Horilla department creation white-box skill verifier
+type: SKILL_GRAPH_VERIFIER
+status: ACTIVE
+owner: qa-platform
+locator:
+  project: horilla
+  path: skills/horilla/department.create.yaml
+  ruleId: department.create
+enforces:
+  - INV-HOR-001
+sourceRefs: []

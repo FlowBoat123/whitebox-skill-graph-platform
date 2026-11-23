@@ -1,0 +1,8 @@
+schemaVersion: 1
+id: DF-AUTHORIZATION_ACCESS
+name: Authentication and authorization
+description: Đăng nhập, phiên làm việc, MFA, phân quyền hoặc phạm vi truy cập không đúng với danh tính và vai trò.
+mechanism: Kiểm tra quyền thiếu hoặc không đồng nhất giữa UI, API và phạm vi tài nguyên.
+status: ACTIVE
+owner: security-team
+sourceRefs: []

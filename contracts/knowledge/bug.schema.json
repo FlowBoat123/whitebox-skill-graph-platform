@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bug.schema.json",
+  "title": "Bug RCA Knowledge Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "status",
+    "severity",
+    "owner",
+    "source",
+    "classification",
+    "analysis",
+    "impact",
+    "resolution",
+    "sourceRefs"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "$ref": "common.schema.json#/$defs/schemaVersion"
+    },
+    "id": {
+      "$ref": "common.schema.json#/$defs/bugId"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["DRAFT", "CONFIRMED", "SUPERSEDED"]
+    },
+    "severity": {
+      "$ref": "common.schema.json#/$defs/severity"
+    },
+    "owner": {
+      "$ref": "common.schema.json#/$defs/nonEmptyString"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["projectKey", "issueIid", "issueUrl"],
+      "properties": {
+        "projectKey": {
+          "$ref": "common.schema.json#/$defs/projectKey"
+        },
+        "issueIid": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "issueUrl": {
+          "$ref": "common.schema.json#/$defs/uri"
+        }
+      }
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["defectFamily"],
+      "properties": {
+        "defectFamily": {
+          "$ref": "common.schema.json#/$defs/defectFamilyId"
+        }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "symptom",
+        "trigger",
+        "directCause",
+        "enablingCondition",
+        "escapeReason",
+        "violatedInvariants"
+      ],
+      "properties": {
+        "symptom": {
+          "$ref": "common.schema.json#/$defs/nonEmptyString"
+        },
+        "trigger": {
+          "$ref": "common.schema.json#/$defs/nonEmptyString"
+        },
+        "directCause": {
+          "$ref": "common.schema.json#/$defs/nonEmptyString"
+        },
+        "enablingCondition": {
+          "$ref": "common.schema.json#/$defs/nonEmptyString"
+        },
+        "escapeReason": {
+          "$ref": "common.schema.json#/$defs/nonEmptyString"
+        },
+        "violatedInvariants": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "common.schema.json#/$defs/invariantId"
+          }
+        }
+      }
+    },
+    "impact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["affectedCodeUnits", "siblingScan"],
+      "properties": {
+        "affectedCodeUnits": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "common.schema.json#/$defs/codeUnitId"
+          }
+        },
+        "siblingScan": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "method", "candidates"],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["PENDING", "COMPLETED", "NOT_APPLICABLE"]
+            },
+            "method": {
+              "oneOf": [
+                {
+                  "$ref": "common.schema.json#/$defs/nonEmptyString"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "candidates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["codeUnit", "verdict", "evidenceRef"],
+                "properties": {
+                  "codeUnit": {
+                    "$ref": "common.schema.json#/$defs/codeUnitId"
+                  },
+                  "verdict": {
+                    "type": "string",
+                    "enum": ["AFFECTED", "SAFE", "DEFERRED"]
+                  },
+                  "evidenceRef": {
+                    "oneOf": [
+                      {
+                        "$ref": "common.schema.json#/$defs/evidenceId"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fixMergeRequest", "regressionGuardrails", "guardrailException"],
+      "properties": {
+        "fixMergeRequest": {
+          "oneOf": [
+            {
+              "$ref": "common.schema.json#/$defs/changeId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "regressionGuardrails": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "common.schema.json#/$defs/guardrailId"
+          }
+        },
+        "guardrailException": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["reason", "owner", "expiresOn"],
+              "properties": {
+                "reason": {
+                  "$ref": "common.schema.json#/$defs/nonEmptyString"
+                },
+                "owner": {
+                  "$ref": "common.schema.json#/$defs/nonEmptyString"
+                },
+                "expiresOn": {
+                  "$ref": "common.schema.json#/$defs/isoDate"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "sourceRefs": {
+      "$ref": "common.schema.json#/$defs/sourceRefs"
+    }
+  }
+}

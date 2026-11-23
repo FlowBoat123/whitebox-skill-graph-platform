@@ -1,0 +1,45 @@
+schemaVersion: 1
+id: department.delete
+app: horilla
+description: Delete an existing department using an icon-only button targeted via semantic title attribute.
+preconditions:
+  - name: auth.logged_in
+    singleton: true
+    params:
+      user: "{{user}}"
+  - name: department.exists
+    params:
+      department: "{{department}}"
+produces:
+  - name: department.deleted
+    params:
+      department: "{{department}}"
+inputs:
+  user:
+    type: string
+    required: true
+  department:
+    type: string
+    required: true
+codeRefs:
+  routes:
+    - /settings/department-view/
+  endpoints:
+    - POST /generic-delete/
+  sourceFiles:
+    - base/cbv/department.py
+    - horilla_theme/templates/generic/delete_confirmation.html
+steps:
+  - op: NAVIGATE
+    url: /settings/department-view/
+  - op: CLICK
+    target:
+      strategy: title
+      value: Delete
+      exact: true
+      containerText: "{{department}}"
+postconditions:
+  - kind: CONSOLE_ERRORS
+    maxCount: 0
+  - kind: PAGE_ERRORS
+    maxCount: 0

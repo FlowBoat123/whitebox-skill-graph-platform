@@ -1,0 +1,22 @@
+{
+  "name": "whitebox-skill-graph-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "White-Box Composable Skill Graph unified with a deterministic Defect Knowledge Graph and local MCP Server for safe, 0-LLM-replay web verification.",
+  "packageManager": "npm@10.8.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "knowledge:validate": "npm run validate --workspace=@defect-intelligence/knowledge-validator --",
+    "knowledge:build": "npm run build --workspace=@defect-intelligence/knowledge-validator --",
+    "mcp": "npm run start --workspace=@defect-intelligence/mcp-server --",
+    "demo:defense": "tsx scripts/skill-graph-defense-demo.ts",
+    "figures:export": "tsx scripts/skill-graph-export-figures.ts",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  }
+}

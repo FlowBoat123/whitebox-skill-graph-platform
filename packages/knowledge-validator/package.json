@@ -1,0 +1,29 @@
+{
+  "name": "@defect-intelligence/knowledge-validator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Safe validator and deterministic graph compiler for the defect knowledge registry.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "validate": "tsx src/cli.ts validate",
+    "build": "tsx src/cli.ts build",
+    "typecheck": "tsc --noEmit -p ../../tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

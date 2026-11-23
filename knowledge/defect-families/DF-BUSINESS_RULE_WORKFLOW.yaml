@@ -1,0 +1,8 @@
+schemaVersion: 1
+id: DF-BUSINESS_RULE_WORKFLOW
+name: Business rule and workflow
+description: Quy tắc nghiệp vụ, điều kiện hành động hoặc chuyển trạng thái chạy sai so với quy trình được phép.
+mechanism: Rule bị sao chép, thiếu transition guard hoặc không bao phủ đầy đủ tổ hợp vai trò và trạng thái.
+status: ACTIVE
+owner: engineering-team
+sourceRefs: []

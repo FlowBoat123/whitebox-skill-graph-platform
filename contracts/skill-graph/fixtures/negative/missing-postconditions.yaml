@@ -1,0 +1,18 @@
+schemaVersion: 1
+id: bank.broken
+app: cypress-rwa
+description: Invalid fixture missing deterministic postconditions.
+preconditions: []
+produces: []
+inputs: {}
+codeRefs:
+  routes:
+    - /bankaccounts
+  endpoints:
+    - POST /graphql
+  sourceFiles:
+    - src/components/BankAccountForm.tsx
+steps:
+  - op: NAVIGATE
+    url: /bankaccounts
+postconditions: []
